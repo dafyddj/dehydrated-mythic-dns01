@@ -5,10 +5,10 @@
 . "$(dirname "$0")"/../common/mythic-dns01
 
 echo -ne "$ARGS" | while read domain filename token; do
-    echo " ++ setting DNS for $domain"
+    echo " ++ Setting DNS for $domain"
     call_api ADD _acme-challenge.$domain $token
 done
 echo -ne "$ARGS" | while read domain filename token; do
-    echo " ++ waiting DNS for $domain"
+    echo " ++ Waiting DNS for $domain"
     wait_for_dns _acme-challenge.$domain $token
 done

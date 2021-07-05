@@ -5,6 +5,6 @@
 . "$(dirname "$0")"/../common/mythic-dns01
 
 echo -ne "$ARGS" | while read domain filename token; do
-    echo " ++ cleaning DNS for $domain"
+    echo " ++ Cleaning DNS for $domain"
     call_api DELETE _acme-challenge.$domain $token
 done
